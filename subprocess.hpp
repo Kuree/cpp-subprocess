@@ -670,6 +670,7 @@ struct input
   }
   input(IOTYPE typ) {
     assert (typ == PIPE && "STDOUT/STDERR not allowed");
+      (void)typ;
 #ifndef _MSC_VER    
     std::tie(rd_ch_, wr_ch_) = util::pipe_cloexec();
 #endif
@@ -703,6 +704,7 @@ struct output
   }
   output(IOTYPE typ) {
     assert (typ == PIPE && "STDOUT/STDERR not allowed");
+      (void)typ;
 #ifndef _MSC_VER
     std::tie(rd_ch_, wr_ch_) = util::pipe_cloexec();
 #endif
